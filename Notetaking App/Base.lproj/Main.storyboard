@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
@@ -29,20 +29,38 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fcJ-9A-8IE">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzQ-3T-Xyg">
+                                <items>
+                                    <navigationItem title="Notetaking App" id="BXP-h3-JCa">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eV4-l3-yhn"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
+                            <constraint firstItem="fcJ-9A-8IE" firstAttribute="top" secondItem="lzQ-3T-Xyg" secondAttribute="bottom" id="7Hu-kb-CnF"/>
+                            <constraint firstItem="fcJ-9A-8IE" firstAttribute="top" secondItem="lzQ-3T-Xyg" secondAttribute="bottom" id="Dzq-AI-ep1"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="fcJ-9A-8IE" secondAttribute="bottom" id="LIl-1F-THH"/>
+                            <constraint firstItem="fcJ-9A-8IE" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="WuY-nn-aH5"/>
+                            <constraint firstItem="lzQ-3T-Xyg" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="cLB-TG-hOd"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
+                            <constraint firstAttribute="trailing" secondItem="fcJ-9A-8IE" secondAttribute="trailing" id="mwT-tc-3AP"/>
+                            <constraint firstItem="lzQ-3T-Xyg" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="n0k-K0-mgl"/>
+                            <constraint firstAttribute="trailing" secondItem="lzQ-3T-Xyg" secondAttribute="trailing" id="sBb-6H-7d4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="All Notes" image="note" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Starred-->
         <scene sceneID="wg7-f3-ORb">
@@ -53,7 +71,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
@@ -67,13 +85,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAw-ep-NNV">
+                                <items>
+                                    <navigationItem title="Notetaking App" id="o4k-6A-ox6">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9sH-nt-0oR"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i9j-15-y7z">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jAw-ep-NNV" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="5e8-zd-W82"/>
+                            <constraint firstAttribute="trailing" secondItem="i9j-15-y7z" secondAttribute="trailing" id="8cV-Ww-moI"/>
+                            <constraint firstAttribute="trailing" secondItem="jAw-ep-NNV" secondAttribute="trailing" id="9WO-GI-5AT"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="i9j-15-y7z" secondAttribute="bottom" id="CzF-XB-U67"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
+                            <constraint firstItem="i9j-15-y7z" firstAttribute="top" secondItem="jAw-ep-NNV" secondAttribute="bottom" id="TyC-HA-8QJ"/>
+                            <constraint firstItem="i9j-15-y7z" firstAttribute="top" secondItem="jAw-ep-NNV" secondAttribute="bottom" id="UXQ-Sg-GMo"/>
+                            <constraint firstItem="i9j-15-y7z" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="eBm-8V-iHN"/>
                             <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="jAw-ep-NNV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="s6x-5f-gFe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Starred" image="Star Filled-50" id="cPa-gy-q4n"/>
@@ -99,11 +135,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-555" y="-309"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Star Filled-50" width="25" height="25"/>
-        <image name="note" width="25" height="25"/>
+        <image name="Star Filled-50" width="16" height="16"/>
+        <image name="note" width="16" height="16"/>
     </resources>
 </document>
