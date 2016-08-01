@@ -7,15 +7,38 @@
 //
 
 import UIKit
+var noteWithImage: Note?
+var noteWithoutImage: NoteWithoutImage?
 
 class CreateNoteViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var noteImage: UIImageView!
     
+    @IBOutlet weak var noteText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func saveNote(_ sender: AnyObject) {
+        if titleText.text != nil && noteText.text != nil {
+            if noteImage.image != nil {
+                noteWithImage = Note(title: titleText.text!, content: noteText.text, image: noteImage.image!)
+            } else {
+                noteWithoutImage = NoteWithoutImage(title: titleText.text!, content: noteText.text!)
+            }
+        }
+        print(noteWithImage)
+        print(noteWithoutImage)
+        
+        if noteWithImage != nil || noteWithoutImage != nil {
+            let alert = UIAlertView(title: "Success", message: "Your note has been saved", delegate: self, cancelButtonTitle: "OK")
+            alert.tag = 1
+            alert.show()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -92,7 +92,11 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5N-Rt-s2t">
                                 <items>
                                     <navigationItem title="Notetaking App" id="txl-BF-xis">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="zFu-ds-u6N"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="zFu-ds-u6N">
+                                            <connections>
+                                                <action selector="saveNote:" destination="v3p-zp-PcW" id="VOX-Qr-n2V"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="co9-DK-crk">
                                             <connections>
                                                 <action selector="cancelNoteCreation:" destination="v3p-zp-PcW" id="9Lq-6T-TD6"/>
@@ -155,6 +159,8 @@
                     </view>
                     <connections>
                         <outlet property="noteImage" destination="iwh-VR-W8K" id="yU4-vA-Og2"/>
+                        <outlet property="noteText" destination="9UL-8l-fk9" id="AjA-hZ-ij5"/>
+                        <outlet property="titleText" destination="6N8-PH-OTp" id="wSf-Vw-qZc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxT-0T-803" userLabel="First Responder" sceneMemberID="firstResponder"/>

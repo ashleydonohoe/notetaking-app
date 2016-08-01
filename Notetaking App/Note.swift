@@ -12,5 +12,22 @@ import Foundation
 struct Note {
     var title: String
     var content: String
-    var image: UIImage
+    var image: UIImage?
+    
+    init( title: String, content: String, image: UIImage) {
+        self.title = title
+        self.content = content
+        self.image = image
+    }
+}
+
+
+struct NoteWithoutImage {
+    var title: String
+    var content: String
+    
+    init( title: String, content: String) {
+        self.title = title
+        self.content = content
+    }
 }
