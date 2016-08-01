@@ -299,6 +299,7 @@
 				E065378D1D4EFEFD0028B546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
