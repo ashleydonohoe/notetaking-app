@@ -11,6 +11,8 @@ var noteWithImage: Note?
 var noteWithoutImage: NoteWithoutImage?
 
 class CreateNoteViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var currentNote: Note?
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var noteImage: UIImageView!
@@ -33,11 +35,12 @@ class CreateNoteViewController: UIViewController, UITextFieldDelegate, UIImagePi
         print(noteWithoutImage)
         
         if noteWithImage != nil || noteWithoutImage != nil {
-            let alert = UIAlertView(title: "Success", message: "Your note has been saved", delegate: self, cancelButtonTitle: "OK")
-            alert.tag = 1
-            alert.show()
-            
+            let alert = UIAlertController(title: "Success", message: "Your note has been saved!", preferredStyle: UIAlertControllerStyle.alert)
+            self.present(alert, animated: true, completion: nil)
             self.dismiss(animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Your note could not be saved!", preferredStyle: UIAlertControllerStyle.alert)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
