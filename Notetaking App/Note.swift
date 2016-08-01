@@ -13,21 +13,12 @@ struct Note {
     var title: String
     var content: String
     var image: UIImage?
+    var starred: Bool
     
-    init( title: String, content: String, image: UIImage) {
+    init( title: String, content: String, image: UIImage? = nil, starred: Bool) {
         self.title = title
         self.content = content
         self.image = image
-    }
-}
-
-
-struct NoteWithoutImage {
-    var title: String
-    var content: String
-    
-    init( title: String, content: String) {
-        self.title = title
-        self.content = content
+        self.starred = false
     }
 }

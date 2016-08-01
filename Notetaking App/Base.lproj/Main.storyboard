@@ -126,7 +126,7 @@
                                                 <action selector="saveNote:" destination="v3p-zp-PcW" id="VOX-Qr-n2V"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="co9-DK-crk">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="co9-DK-crk">
                                             <connections>
                                                 <action selector="cancelNoteCreation:" destination="v3p-zp-PcW" id="9Lq-6T-TD6"/>
                                             </connections>

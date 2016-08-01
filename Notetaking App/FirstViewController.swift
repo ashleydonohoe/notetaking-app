@@ -12,6 +12,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var table: UITableView!
     
+    // Sets variable to hold the notes saved
+    var notes: [Note] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,6 +26,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let notesObject = UserDefaults.standard.object(forKey: "notes")
+        
+        if let tempNotes = notesObject as? [Note] {
+            notes = tempNotes
+        }
+        
         table.reloadData()
     }
 
@@ -32,7 +41,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        cell.textLabel?.text = noteWithImage?.title
+        cell.textLabel?.text = note?.title
         
         return cell
 
