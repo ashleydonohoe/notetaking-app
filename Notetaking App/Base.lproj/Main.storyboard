@@ -99,7 +99,7 @@
         <!--Create Note-->
         <scene sceneID="3rR-vv-cwS">
             <objects>
-                <viewController title="Create Note" id="v3p-zp-PcW" customClass="CreateNoteViewController" customModule="Notetaking_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewOrEditNote" title="Create Note" id="v3p-zp-PcW" customClass="CreateNoteViewController" customModule="Notetaking_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uYh-su-Bae"/>
                         <viewControllerLayoutGuide type="bottom" id="rk3-2l-lFZ"/>
@@ -134,7 +134,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p49-eq-QVY">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p49-eq-QVY">
                                 <state key="normal" title="Add Image"/>
                                 <connections>
                                     <action selector="addImage:" destination="v3p-zp-PcW" eventType="touchUpInside" id="Bna-Xo-mny"/>

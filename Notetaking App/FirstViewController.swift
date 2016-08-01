@@ -13,7 +13,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var table: UITableView!
     
     // Sets variable to hold the notes saved
-    var notes: [Note] = []
+    var notes: [[String: AnyObject]] = [ ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let notesObject = UserDefaults.standard.object(forKey: "notes")
+        let notesObject = UserDefaults.standard.object(forKey: "notes") as! [[String: AnyObject]]
         
-        if let tempNotes = notesObject as? [Note] {
+       if let tempNotes = notesObject as? [[String:AnyObject]] {
             notes = tempNotes
         }
         
@@ -36,20 +36,20 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return notes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        cell.textLabel?.text = note?.title
+        cell.textLabel?.text = notes[indexPath.row]["title"] as? String
         
         return cell
 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        print(row)
+       let viewOrEditController = self.storyboard?.instantiateViewController(withIdentifier: "viewOrEditNote") as! CreateNoteViewController
+        viewOrEditController.currentNote = notes[indexPath.row]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {

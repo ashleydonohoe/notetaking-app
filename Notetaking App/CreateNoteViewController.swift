@@ -11,7 +11,7 @@ var note: Note?
 
 class CreateNoteViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var currentNote: Note?
+    var currentNote: [String: AnyObject] = [:]
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var noteImage: UIImageView!
@@ -19,33 +19,53 @@ class CreateNoteViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(currentNote)
+        if currentNote["title"] != nil {
+            titleText.text = currentNote["title"] as! String
+            noteText.text = currentNote["content"] as! String
+        }
+    }
+    
     @IBAction func saveNote(_ sender: AnyObject) {
         
-        let notesObject = UserDefaults.standard.object(forKey: "notes")
-        var notes: [Note]
-        
-        if let tempNotes = notesObject as? [Note] {
+        let notesObject = UserDefaults.standard.object(forKey: "notes") as! [[String: AnyObject]]
+        print(notesObject)
+        var notes: [[String: AnyObject]] = []
+        if let tempNotes = notesObject as? [[String:AnyObject]] {
             notes = tempNotes
-            if titleText.text != nil && noteText.text != nil {
-                if noteImage.image != nil {
-                    notes.append(Note(title: titleText.text!, content: noteText.text, image: noteImage.image!, starred: false))
-                    self.dismiss(animated: true, completion: nil)
-                    let alert = UIAlertController(title: "Success", message: "Your note with image has been saved!", preferredStyle: UIAlertControllerStyle.alert)
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    notes.append(Note(title: titleText.text!, content: noteText.text!, starred: false))
-                    self.dismiss(animated: true, completion: nil)
-                    let alert = UIAlertController(title: "Success", message: "Your note has been saved!", preferredStyle: UIAlertControllerStyle.alert)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Your note could not be saved! It may be missing the title or note content.", preferredStyle: UIAlertControllerStyle.alert)
-                self.present(alert, animated: true, completion: nil)
-            }
+//            let image = UIImagePNGRepresentation(noteImage.image!)! as NSData
+            let note = ["title": titleText.text! as String , "content": noteText.text! as String, "starred": false as Bool]
+            notes.append(note as! [String: AnyObject])
+//            if titleText.text != nil && noteText.text != nil {
+//                if noteImage.image != nil {
+//                    // Convert these to dictionaries; eliminate structs for now
+//                    let note = ["title": titleText.text!, "content": noteText.text!, "image": noteImage.image!, "starred": false]
+//                    print(note)
+//                    notes.append(note)
+//                    print(notes)
+//                    let alert = UIAlertController(title: "Success", message: "Your note with image has been saved!", preferredStyle: UIAlertControllerStyle.alert)
+//                    self.present(alert, animated: true, completion: nil)
+//                    self.dismiss(animated: true, completion: nil)
+//                } else {
+//                    let note = ["title": titleText.text!, "content": noteText.text!, "starred": false]
+//                    print(note)
+//                    notes.append(note as! [String : AnyObject])
+//                    print(notes)
+//                    self.dismiss(animated: true, completion: nil)
+//                    let alert = UIAlertController(title: "Success", message: "Your note has been saved!", preferredStyle: UIAlertControllerStyle.alert)
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            } else {
+//                let alert = UIAlertController(title: "Error", message: "Your note could not be saved! It may be missing the title or note content.", preferredStyle: UIAlertControllerStyle.alert)
+//                self.present(alert, animated: true, completion: nil)
+//            }
         }
+        
+        UserDefaults.standard.set(notes, forKey: "notes")
+        print(notes[0])
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +87,6 @@ class CreateNoteViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print(info)
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         noteImage.image = image
         self.dismiss(animated: true, completion: nil)
