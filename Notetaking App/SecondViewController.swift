@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  Notetaking App
 //
-//  Created by Gabriele on 7/31/16.
+//  Created by AD on 7/31/16.
 //  Copyright © 2016 Ashley Donohoe. All rights reserved.
 //
 
